@@ -1,0 +1,17 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Lista de compras
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list [inset]="true">
+    <ion-item *ngFor="let task of tasks">
+      <ion-checkbox slot="start" [(ngModel)]="task.completed" ></ion-checkbox>
+      <ion-input aria-label="Task name" [value]="task.name" [style.textDecoration]="task.completed ? 'line-through' : 'none'"></ion-input>
+    </ion-item>
+    <ion-item><ion-button (click)="addTask()">+ Agregar elemento en la lista</ion-button></ion-item>
+  </ion-list>
+</ion-content>
